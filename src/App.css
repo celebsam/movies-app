@@ -1,38 +1,71 @@
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+   scroll-behavior: smooth;
+}
+
+.main-heading-title {
+   background: black;
+   text-align: center;
+   padding: 2rem 0;
+   text-transform: uppercase;
+   font-weight: bold;
+   font-style: italic;
+}
+
 .App {
-  text-align: center;
+   min-height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.fixed-header {
+   position: fixed;
+   width: 100%;
+   z-index: 1000;
+}
+main {
+   padding-top: 101px;
+   padding-bottom: 80px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.fixed-footer {
+   position: fixed;
+   bottom: 0;
+   width: 100%;
+   background: black;
+   z-index: 1000;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.fixed-footer a {
+   font-size: clamp(1rem, 3vw, 1.5rem);
+   text-decoration: none;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-description {
+   margin: -8px 0 0 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.fixed-footer .active {
+   color: rgb(163, 23, 163);
+}
+
+.trending-card-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+   grid-gap: 3rem;
+}
+img {
+   width: 100%;
+}
+
+.category-heading {
+   padding: 2rem 0;
+   text-align: center;
+}
+
+.ellipsis {
+   display: -webkit-box;
+   -webkit-line-clamp: 3;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
 }
