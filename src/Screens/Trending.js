@@ -2,17 +2,21 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import PaginationComponent from "../components/Pagination/PaginationComponent";
 import SingleCard from "../components/SingleCard/SingleCard";
+import { Link } from "react-router-dom";
 
 const Trending = () => {
    const [data, setData] = useState([]);
    const [page, setPage] = useState(1);
+   const [totalPages, setTotalPages] = useState(5);
    useEffect(() => {
       axios
          .get(
             `https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`
          )
          .then((response) => {
+            console.log(response);
             setData(response.data.results);
+            setTotalPages(response.data.total_pages);
          })
          .catch((error) => {
             console.log(error);
@@ -25,9 +29,8 @@ const Trending = () => {
             {!data
                ? null
                : data.map((movie) => (
-                    <div>
+                    <Link key={movie.id} className="trending-card">
                        <SingleCard
-                          key={movie.id}
                           id={movie.id}
                           poster={movie.poster_path}
                           title={movie.title || movie.name}
@@ -36,10 +39,11 @@ const Trending = () => {
                           vote_average={movie.vote_average}
                           overview={movie.overview}
                        />
-                    </div>
+                    </Link>
                  ))}
          </section>
-         <PaginationComponent />
+         <br />
+         <PaginationComponent setPage={setPage} total_pages={totalPages} />
       </>
    );
 };

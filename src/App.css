@@ -3,6 +3,7 @@
    margin: 0;
    box-sizing: border-box;
    scroll-behavior: smooth;
+   text-decoration: none !important;
 }
 
 .main-heading-title {
@@ -68,4 +69,11 @@ img {
    -webkit-line-clamp: 3;
    -webkit-box-orient: vertical;
    overflow: hidden;
+}
+
+.trending-card {
+   transition: all 0.4s ease-in-out;
+}
+.trending-card:hover {
+   transform: scale(1.1);
 }

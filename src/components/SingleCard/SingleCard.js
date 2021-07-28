@@ -31,7 +31,16 @@ const SingleCard = ({
                src={`${img_300}/${poster}`}
             />
             <Card.Body>
-               <Card.Title style={{ color: "turquoise" }}>{title}</Card.Title>
+               <Card.Title
+                  style={{
+                     color: "turquoise",
+                     textOverflow: "ellipsis",
+                     whiteSpace: "nowrap",
+                     overflow: "hidden",
+                  }}
+               >
+                  {title}
+               </Card.Title>
                <div className="ellipsis">
                   <Card.Text>{overview}</Card.Text>
                </div>
